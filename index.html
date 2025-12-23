@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lumora – Connect. Master. Rise.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    .glow { box-shadow: 0 0 40px rgba(234, 179, 8, 0.2); }
+    .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+    .btn-ripple {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-ripple::after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      animation: ripple 0.6s ease-out;
+      pointer-events: none;
+    }
+    @keyframes ripple {
+      to { transform: translate(-50%, -50%) scale(4); opacity: 0; }
+    }
+    .particle {
+      position: absolute;
+      background: rgba(251, 191, 36, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float 20s infinite linear;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) translateX(0); }
+      100% { transform: translateY(-100px) translateX(100px); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 text-white min-h-screen relative">
+
+  <!-- Subtle Floating Particles -->
+  <div id="particles"></div>
+
+  <!-- Hero Section -->
+  <header class="relative overflow-hidden py-24 md:py-32">
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 opacity-0 translate-y-10" id="hero-title">
+        Lumora
+      </h1>
+      <p class="text-2xl md:text-3xl font-light text-amber-200 mb-8 opacity-0 translate-y-10" id="hero-tagline">
+        Connect. Master. Rise.
+      </p>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-12 text-gray-300 opacity-0 translate-y-10" id="hero-desc">
+        The premier platform for Nigerian students to exchange skills, grow together, and unlock their full potential — completely free.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center opacity-0 translate-y-10" id="hero-buttons">
+        <a href="https://forms.gle/WdeD9gPB8VzXBFnh9" target="_blank" class="btn-ripple bg-amber-600 hover:bg-amber-500 text-black font-semibold py-4 px-10 rounded-full text-lg transition transform hover:scale-105 glow">
+          Join Lumora Today
+        </a>
+        <a href="#explore" class="btn-ripple border-2 border-amber-600 text-amber-400 hover:bg-amber-600 hover:text-black font-semibold py-4 px-10 rounded-full text-lg transition">
+          Explore Skills
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Stats Counter -->
+  <section class="py-16 bg-slate-900 bg-opacity-50">
+    <div class="container mx-auto px-6 text-center">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div>
+          <h3 class="text-5xl font-bold text-amber-400 count" data-target="250">0</h3>
+          <p class="text-gray-300 mt-2">Students Joined</p>
+        </div>
+        <div>
+          <h3 class="text-5xl font-bold text-amber-400 count" data-target="180">0</h3>
+          <p class="text-gray-300 mt-2">Skills Shared</p>
+        </div>
+        <div>
+          <h3 class="text-5xl font-bold text-amber-400 count" data-target="45">0</h3>
+          <p class="text-gray-300 mt-2">Universities</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20 px-6">
+    <div class="container mx-auto max-w-5xl">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 opacity-0" id="how-title">How Lumora Works</h2>
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="text-center step-card opacity-0">
+          <div class="bg-amber-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold glow">1</div>
+          <h3 class="text-2xl font-semibold mb-4">Offer Your Skill</h3>
+          <p class="text-gray-300">Share what you're great at — coding, design, public speaking, and more.</p>
+        </div>
+        <div class="text-center step-card opacity-0">
+          <div class="bg-amber-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold glow">2</div>
+          <h3 class="text-2xl font-semibold mb-4">Find Your Match</h3>
+          <p class="text-gray-300">Browse and connect with students who can teach you what you want.</p>
+        </div>
+        <div class="text-center step-card opacity-0">
+          <div class="bg-amber-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold glow">3</div>
+          <h3 class="text-2xl font-semibold mb-4">Grow Together</h3>
+          <p class="text-gray-300">Exchange knowledge, build real skills, and rise — no money needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Skills -->
+  <section id="explore" class="py-20 px-6 bg-slate-900 bg-opacity-50">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 opacity-0" id="skills-title">Skills Being Shared Now</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="skill-card bg-slate-800 rounded-2xl p-8 glow border border-slate-700 opacity-0">
+          <h4 class="text-xl font-semibold mb-3 text-amber-400">Flutter Mobile Development</h4>
+          <p class="text-gray-300 mb-4">Learn to build beautiful cross-platform apps from scratch.</p>
+          <p class="text-sm text-gray-500">Offered by David • LASU</p>
+        </div>
+        <div class="skill-card bg-slate-800 rounded-2xl p-8 glow border border-slate-700 opacity-0">
+          <h4 class="text-xl font-semibold mb-3 text-amber-400">UI/UX Design with Figma</h4>
+          <p class="text-gray-300 mb-4">Master modern design and create stunning interfaces.</p>
+          <p class="text-sm text-gray-500">Offered by Aisha • Creative Arts</p>
+        </div>
+        <div class="skill-card bg-slate-800 rounded-2xl p-8 glow border border-slate-700 opacity-0">
+          <h4 class="text-xl font-semibold mb-3 text-amber-400">Public Speaking Mastery</h4>
+          <p class="text-gray-300 mb-4">Overcome fear and deliver powerful presentations.</p>
+          <p class="text-sm text-gray-500">Offered by Tolu • Mass Comm</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-24 px-6 text-center">
+    <div class="container mx-auto max-w-4xl">
+      <h2 class="text-4xl md:text-5xl font-bold mb-8 opacity-0" id="cta-title">Be Part of the Movement</h2>
+      <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto opacity-0" id="cta-desc">
+        Join ambitious Nigerian students already elevating their future on Lumora.
+      </p>
+      <a href="https://forms.gle/WdeD9gPB8VzXBFnh9" target="_blank" class="btn-ripple bg-amber-600 hover:bg-amber-500 text-black font-bold py-5 px-12 rounded-full text-xl transition transform hover:scale-110 glow inline-block">
+        Get Early Access Now
+      </a>
+      <p class="text-sm text-gray-400 mt-8">Built with ❤️ by a fellow Nigerian student</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-slate-800 text-center text-gray-500">
+    <p>&copy; 2025 Lumora. Elevating Nigeria, one skill at a time.</p>
+  </footer>
+
+  <script>
+    // Ripple effect
+    document.querySelectorAll('.btn-ripple').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = btn.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('absolute', 'bg-white', 'rounded-full', 'opacity-30', 'animate-ping');
+        btn.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+
+    // GSAP Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to("#hero-title", { opacity: 1, y: 0, duration: 1, delay: 0.3 });
+    gsap.to("#hero-tagline", { opacity: 1, y: 0, duration: 1, delay: 0.6 });
+    gsap.to("#hero-desc", { opacity: 1, y: 0, duration: 1, delay: 0.9 });
+    gsap.to("#hero-buttons", { opacity: 1, y: 0, duration: 1, delay: 1.2 });
+
+    gsap.to("#how-title", { opacity: 1, scrollTrigger: { trigger: "#how-title", start: "top 80%" } });
+    document.querySelectorAll(".step-card").forEach((card, i) => {
+      gsap.to(card, { opacity: 1, y: 0, duration: 0.8, delay: i * 0.2, scrollTrigger: { trigger: card, start: "top 85%" } });
+    });
+
+    gsap.to("#skills-title", { opacity: 1, scrollTrigger: { trigger: "#skills-title", start: "top 80%" } });
+    document.querySelectorAll(".skill-card").forEach((card, i) => {
+      gsap.to(card, { opacity: 1, y: 0, duration: 0.8, delay: i * 0.1, scrollTrigger: { trigger: card, start: "top 90%" } });
+      card.addEventListener("mouseenter", () => gsap.to(card, { scale: 1.05, y: -10, duration: 0.4 }));
+      card.addEventListener("mouseleave", () => gsap.to(card, { scale: 1, y: 0, duration: 0.4 }));
+    });
+
+    gsap.to("#cta-title", { opacity: 1, scrollTrigger: { trigger: "#cta-title", start: "top 80%" } });
+    gsap.to("#cta-desc", { opacity: 1, delay: 0.3, scrollTrigger: { trigger: "#cta-desc", start: "top 80%" } });
+
+    // Counter Animation
+    document.querySelectorAll('.count').forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const duration = 2000;
+      const start = Date.now();
+      const timer = setInterval(() => {
+        const progress = Math.min((Date.now() - start) / duration, 1);
+        counter.textContent = Math.floor(progress * target);
+        if (progress === 1) clearInterval(timer);
+      }, 30);
+    });
+
+    // Floating Particles
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 20; i++) {
+      const p = document.createElement('div');
+      p.classList.add('particle');
+      p.style.width = p.style.height = Math.random() * 8 + 4 + 'px';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.animationDelay = Math.random() * 20 + 's';
+      p.style.animationDuration = 15 + Math.random() * 15 + 's';
+      particlesContainer.appendChild(p);
+    }
+  </script>
+</body>
+  </html>
